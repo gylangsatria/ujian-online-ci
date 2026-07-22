@@ -1,72 +1,72 @@
-# Aplikasi Ujian Online Menggunakan CodeIgniter 3
+# Ujian Online CI — CodeIgniter 4 + Docker
 
-> [!IMPORTANT]
-> Disarankan menggunakan PHP versi 7. \
-> Tidak dapat berjalan di PHP versi 8 ke atas
+Migrasi [Ujian Online CI](https://github.com/gylangsatria/ujian-online-ci) dari CodeIgniter 3 ke CodeIgniter 4, dengan MySQL 8 dan Docker.
 
-# Cara Install
+## Tech Stack
 
-1. Buat database dengan nama **_ci_online_test_**.
-2. Kemudian import database pada folder **_sql_**.
-3. dan juga ubah **_date_default_timezone_set_** pada **_config.php_**.<br/>
+| Komponen | Teknologi |
+|---|---|
+| Backend | PHP 8.2 + CodeIgniter 4 |
+| Database | MySQL 8.0 |
+| Web Server | Nginx 1.25 |
+| Frontend | Tailwind CSS (CDN) + Alpine.js |
+| Auth | IonAuth v4 |
+| PDF | TCPDF |
+| Excel | PhpSpreadsheet |
 
-# Install di CPanel Hosting (Jika dihosting)
+## Quick Start
 
-1. Lakukan seperti cara diatas.
-2. Pada file **_config.php_** ubah **_base_url_** dengan domain anda dengan menyertakan `http://` atau `https://`.
-3. Jika di dalam folder project tidak terdapat file **_.htaccess_** silahkan dibuat saja.
-4. Kemudian bisa isi dengan kode berikut ini :
+```bash
+# clone
+git clone git@github.com:gylangsatria/ujian-online-ci.git
+cd ujian-online-ci
+git checkout migrate/codeigniter-4
 
-```
- <IfModule mod_rewrite.c>
- RewriteEngine On
- RewriteBase /
- RewriteCond %{REQUEST_FILENAME} !-f
- RewriteCond %{REQUEST_FILENAME} !-d
- RewriteRule ^(.\*)$ index.php?/$1 [L]
- </IfModule>
-```
+# jalankan container
+docker compose up -d
 
-# Install di NGINX (Alternatif Apache)
-
-1. Lakukan cara install seperti biasa.
-2. Ubah setting pada file `/etc/nginx/sites-available/default`.
-3. Lalu tambahkan kode berikut ini :
-
-```
-location /NAMA_FOLDER_PROJECT {
-    try_files $uri $uri/ /NAMA_FOLDER_PROJECT/index.php;
-}
+# akses
+# App:     http://localhost:8080
+# phpMyAdmin: http://localhost:8081
 ```
 
-4. Sesuaikan `NAMA_FOLDER_PROJECT` dengan nama folder aplikasi ujian online anda.
+## Environment
 
-Jika sudah mengikuti langkah diatas dengan benar seharusnya aplikasi sudah berjalan dengan baik. Pastikan pada console browser tidak terdapat error.
+Copy `.env.example` ke `.env` (sudah tersedia dengan default development):
 
-### User
+```
+CI_ENVIRONMENT = development
+database.default.hostname = db
+database.default.database = ci_online_test
+database.default.username = ci4user
+database.default.password = ci4pass
+database.default.DBDriver = MySQLi
+```
 
-1. Administrator \
-   Email: admin@admin.com \
-   Password : password
+## Struktur
 
-### Thanks to :
+```
+ujian-online-ci/
+├── app/            # Kode aplikasi (Controllers, Models, Views, Config)
+├── docker/         # Docker config (nginx)
+├── public/         # Entry point, assets, uploads
+├── sql/            # Init database
+├── writable/       # Cache, logs, session
+├── .env            # Environment config
+├── docker-compose.yml
+└── Dockerfile
+```
 
-- AdminLTE
-- CodeIgniter
-- Ion Auth
-- Datatables
-- Ignited Datatables
-- Select2
-- SweetAlert2
-- Bootstrap
-- JQuery
-- PACE.js
-- Codemirror
-- Bootstrap datetime-picker
-- Fontawesome
-- Ion-icons
-- Froala Editor
-- MommentJs
-- ICheck
-- frankyradio
-- and more...
+## Roadmap
+
+Lihat [roadmap.md](roadmap.md) untuk detail tahapan migrasi.
+
+## User Default
+
+| Role | Email | Password |
+|---|---|---|
+| Admin | admin@admin.com | password |
+
+## License
+
+MIT — lihat [LICENSE](LICENSE).
