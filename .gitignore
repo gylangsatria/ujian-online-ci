@@ -51,6 +51,8 @@ system/
 temp-ci4/
 composer.lock
 
-# Bower assets (CI3 legacy, replaced by CDN)
+# AdminLTE / CI3 legacy assets (replaced by Tailwind)
+public/assets/dist/
+public/assets/plugins/
 assets/bower_components/
 public/assets/bower_components/
