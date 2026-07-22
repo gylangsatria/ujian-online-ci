@@ -1,0 +1,56 @@
+# CodeIgniter 4
+app/Config/ENVIRONMENT
+.env
+.env.example
+
+# writable directory
+writable/cache/*
+writable/logs/*
+writable/session/*
+writable/debugbar/*
+!writable/cache/.gitkeep
+!writable/logs/.gitkeep
+!writable/session/.gitkeep
+!writable/debugbar/.gitkeep
+
+# Vendor
+vendor/
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Tailwind
+public/assets/build/
+
+# Uploaded files
+public/uploads/*
+uploads/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+
+# CI3 residuals (keep backup but ignore from CI4)
+application/
+system/
+*.bak
+
+# Temp / generated
+temp-ci4/
+composer.lock
+
+# Bower assets (CI3 legacy, replaced by CDN)
+assets/bower_components/
+public/assets/bower_components/
