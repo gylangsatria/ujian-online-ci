@@ -294,10 +294,12 @@ colors: {
 - [x] Testing: landing page CI4 muncul di `localhost:8080`
 - [x] `.gitignore` cleanup: exclude `temp-ci4/`, `composer.lock`, CI3 `assets/bower_components/`, `uploads/`
 
-### Phase 1: Database
-- [ ] Buat migration files (15 tabel)
-- [ ] Seed data (users, groups, dsb)
-- [ ] Testing: migrate & seed sukses
+### Phase 1: Database ✅
+- [x] Buat migration files (14 tabel)
+- [x] Seed data (users, groups, dsb)
+- [x] Testing: migrate & seed sukses
+- [x] Fix `app/Config/Database.php` — env() agar terbaca dari .env
+- [x] Buat `spark` root entrypoint (FCPATH benar)
 
 ### Phase 2: Core Migration
 - [ ] Auth (Login/Logout + IonAuth)

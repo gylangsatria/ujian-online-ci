@@ -1,0 +1,45 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * This file is part of CodeIgniter 4 framework.
+ *
+ * (c) CodeIgniter Foundation <admin@codeigniter.com>
+ *
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
+ */
+
+use CodeIgniter\Boot;
+use Config\Paths;
+
+/*
+ * ---------------------------------------------------------------
+ * CHECK SERVER API
+ * ---------------------------------------------------------------
+ */
+$phpApis = [
+    PHP_SAPI,
+    PHP_SAPI === 'cli' ? 'cli-server' : null,
+];
+php_sapi_name() === 'cli' || exit;
+
+/*
+ * ---------------------------------------------------------------
+ * SET THE CURRENT DIRECTORY
+ * ---------------------------------------------------------------
+ */
+define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR);
+chdir(FCPATH);
+
+/*
+ * ---------------------------------------------------------------
+ * BOOTSTRAP THE APPLICATION
+ * ---------------------------------------------------------------
+ */
+require FCPATH . '../app/Config/Paths.php';
+
+$paths = new Paths();
+require $paths->systemDirectory . '/Boot.php';
+
+exit(Boot::bootSpark($paths));

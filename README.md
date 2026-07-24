@@ -25,8 +25,12 @@ git checkout migrate/codeigniter-4
 # jalankan container
 docker compose up -d
 
+# migrasi & seed database (pertama kali)
+docker compose exec app php spark migrate
+docker compose exec app php spark db:seed DatabaseSeeder
+
 # akses
-# App:     http://localhost:8080
+# App:       http://localhost:8080
 # phpMyAdmin: http://localhost:8081
 ```
 
@@ -66,6 +70,10 @@ Lihat [roadmap.md](roadmap.md) untuk detail tahapan migrasi.
 | Role | Email | Password |
 |---|---|---|
 | Admin | admin@admin.com | password |
+| Dosen | 12345678 (username) | (lihat seed) |
+| Dosen | 01234567 (username) | (lihat seed) |
+| Mahasiswa | 12183018 (username) | (lihat seed) |
++ Note: password tersimpan di hash seed. Login via username (NIP/NIM).
 
 ## License
 
