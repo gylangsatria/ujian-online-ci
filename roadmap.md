@@ -302,7 +302,7 @@ colors: {
 - [x] Buat `spark` root entrypoint (FCPATH benar)
 
 ### Phase 2: Core Migration
-- [ ] Auth (Login/Logout + IonAuth)
+- [x] Auth (Login/Logout + IonAuth)
 - [ ] Dashboard
 - [ ] Master: Jurusan, Matkul, Kelas, Dosen, Mahasiswa
 - [ ] Relasi: JurusanMatkul, KelasDosen

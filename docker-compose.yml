@@ -6,6 +6,13 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: ci4-app
+    volumes:
+      - ./app:/var/www/html/app
+      - ./public:/var/www/html/public
+      - ./writable:/var/www/html/writable
+      - .env:/var/www/html/.env
+      - ./sql:/var/www/html/sql
+      - ./spark:/var/www/html/spark
     networks:
       - ci4-network
     depends_on:
