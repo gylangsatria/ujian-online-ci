@@ -406,7 +406,7 @@ ujian-online-ci/
 | Phase | Effort |
 |---|---|
 | Phase 0: Bootstrap | ✅ Selesai |
-| Phase 1: Database | 1 hari |
+| Phase 1: Database | ✅ Selesai |
 | Phase 2: Core Migration | 5-7 hari *(progress: Auth ✅, Dashboard 🔲, Master 🔲)* |
 | Phase 3: Library & Helper | 1 hari |
 | Phase 4: Tailwind UI | 3-4 hari |
