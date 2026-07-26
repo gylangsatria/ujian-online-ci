@@ -47,6 +47,29 @@ class Auth
             'group_name'    => $group->name ?? '',
             'is_logged_in'  => true,
         ];
+
+        // Store role-specific ID
+        $db = db_connect();
+        if ($group->name === 'dosen') {
+            $dosen = $db->table('dosen')
+                ->where('nip', $user->username)
+                ->orWhere('email', $user->email)
+                ->get()
+                ->getRow();
+            if ($dosen) {
+                $sessionData['dosen_id'] = $dosen->id_dosen;
+            }
+        } elseif ($group->name === 'mahasiswa') {
+            $mhs = $db->table('mahasiswa')
+                ->where('nim', $user->username)
+                ->orWhere('email', $user->email)
+                ->get()
+                ->getRow();
+            if ($mhs) {
+                $sessionData['mahasiswa_id'] = $mhs->id_mahasiswa;
+            }
+        }
+
         $this->session->set($sessionData);
 
         // Update last_login
