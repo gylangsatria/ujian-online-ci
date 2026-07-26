@@ -303,7 +303,7 @@ colors: {
 
 ### Phase 2: Core Migration
 - [x] Auth (Login/Logout + IonAuth)
-- [ ] Dashboard
+- [x] Dashboard
 - [ ] Master: Jurusan, Matkul, Kelas, Dosen, Mahasiswa
 - [ ] Relasi: JurusanMatkul, KelasDosen
 - [ ] Bank Soal (CRUD + import/export Excel)
@@ -319,9 +319,9 @@ colors: {
 - [ ] IonAuth config
 
 ### Phase 4: Tailwind UI Implementation
-- [ ] Layout template (sidebar, navbar, content)
-- [ ] Auth pages (login)
-- [ ] Dashboard page
+- [x] Layout template (sidebar, navbar, content)
+- [x] Auth pages (login)
+- [x] Dashboard page
 - [ ] Master pages (CRUD tables + forms)
 - [ ] Soal pages (editor)
 - [ ] Ujian pages (pelaksanaan)
@@ -407,7 +407,7 @@ ujian-online-ci/
 |---|---|
 | Phase 0: Bootstrap | ✅ Selesai |
 | Phase 1: Database | ✅ Selesai |
-| Phase 2: Core Migration | 5-7 hari *(progress: Auth ✅, Dashboard 🔲, Master 🔲)* |
+| Phase 2: Core Migration | 5-7 hari *(progress: Auth ✅, Dashboard ✅, Master 🔲)* |
 | Phase 3: Library & Helper | 1 hari |
 | Phase 4: Tailwind UI | 3-4 hari |
 | Phase 5: Testing | 2 hari |

@@ -61,19 +61,29 @@ ujian-online-ci/
 └── Dockerfile
 ```
 
-## Roadmap
+## Progress
+
+| Phase | Status |
+|---|---|
+| Phase 0: Bootstrap | ✅ |
+| Phase 1: Database | ✅ |
+| Phase 2: Core Migration | 🚧 Auth ✅, Dashboard ✅, Master 🔲 |
+| Phase 3: Library & Helper | 🔲 |
+| Phase 4: Tailwind UI | 🔲 |
+| Phase 5: Testing | 🔲 |
+| Phase 6: Final | 🔲 |
 
 Lihat [roadmap.md](roadmap.md) untuk detail tahapan migrasi.
 
-## User Default
+## User Default Login
 
-| Role | Email | Password |
+Login via **username** (NIP/NIM) — password ada di seed data.
+| Role | Username | Password |
 |---|---|---|
-| Admin | admin@admin.com | password |
-| Dosen | 12345678 (username) | (lihat seed) |
-| Dosen | 01234567 (username) | (lihat seed) |
-| Mahasiswa | 12183018 (username) | (lihat seed) |
-+ Note: password tersimpan di hash seed. Login via username (NIP/NIM).
+| Admin | Administrator | admin |
+| Dosen | 12345678 | dosen123 |
+| Dosen | 01234567 | dosen123 |
+| Mahasiswa | 12183018 | mahasiswa123 |
 
 ## License
 
