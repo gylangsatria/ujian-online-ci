@@ -55,8 +55,15 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
     $routes->match(['get', 'post'], 'kelas-dosen/create', 'KelasDosen::create');
     $routes->get('kelas-dosen/delete/(:num)', 'KelasDosen::delete/$1');
 
-    // Placeholder
+    // Bank Soal
     $routes->get('soal', 'Soal::index');
+    $routes->match(['get', 'post'], 'soal/create', 'Soal::create');
+    $routes->match(['get', 'post'], 'soal/update/(:num)', 'Soal::update/$1');
+    $routes->get('soal/delete/(:num)', 'Soal::delete/$1');
+    $routes->match(['get', 'post'], 'soal/import', 'Soal::import');
+    $routes->get('soal/export', 'Soal::export');
+    $routes->get('soal/template', 'Soal::template');
+
     $routes->get('ujian', 'Ujian::index');
     $routes->get('hasil-ujian', 'HasilUjian::index');
     $routes->get('users', 'Users::index');

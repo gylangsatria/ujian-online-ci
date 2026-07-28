@@ -306,7 +306,7 @@ colors: {
 - [x] Dashboard
 - [x] Master: Jurusan, Matkul, Kelas, Dosen, Mahasiswa
 - [x] Relasi: JurusanMatkul, KelasDosen
-- [ ] Bank Soal (CRUD + import/export Excel)
+- [x] Bank Soal (CRUD + import/export Excel)
 - [ ] Ujian (jadwal, token, pelaksanaan)
 - [ ] Hasil Ujian (nilai, PDF)
 - [ ] Users Management
