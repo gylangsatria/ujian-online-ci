@@ -173,11 +173,11 @@ database.default.DBDriver = MySQLi
 
 | CI3 Library | CI4 Strategy |
 |---|---|
-| `Datatables.php` | Port ke `App\Libraries\Datatables` |
-| `Ion_auth.php` | `ion-auth/ion-auth` via composer |
-| `Pdf.php` | Port ke `App\Libraries\Pdf` |
-| `tcpdf/` | `tecnickcom/tcpdf` via composer |
-| `PHPExcel/` | `phpoffice/phpspreadsheet` via composer |
+| `Datatables.php` | Native CI4 Query Builder / manual implementation |
+| `Ion_auth.php` | Custom Auth Library (`App\Libraries\Auth`) |
+| `Pdf.php` | Native HTML printing / Future PDF library |
+| `tcpdf/` | TBD (Future enhancement) |
+| `PHPExcel/` | TBD (Future enhancement) |
 
 ---
 
@@ -194,19 +194,19 @@ database.default.DBDriver = MySQLi
 | Tabel | Fungsi |
 |---|---|
 | `dosen` | Data dosen |
-| `groups` | Grup user (IonAuth) |
+| `groups` | Grup user |
 | `h_ujian` | Hasil ujian |
 | `jurusan` | Jurusan |
 | `jurusan_matkul` | Relasi jurusan-matkul |
 | `kelas` | Kelas |
 | `kelas_dosen` | Relasi kelas-dosen |
-| `login_attempts` | Log login (IonAuth) |
+| `login_attempts` | Log login |
 | `mahasiswa` | Data mahasiswa |
 | `matkul` | Mata kuliah |
 | `m_ujian` | Master ujian |
 | `tb_soal` | Bank soal |
-| `users` | User (IonAuth) |
-| `users_groups` | Relasi user-group (IonAuth) |
+| `users` | User data |
+| `users_groups` | Relasi user-group |
 | `migrations` | Riwayat migrasi CI4 (auto) |
 
 ### 3.3 Trigger → Model Events
@@ -267,10 +267,7 @@ colors: {
 
 | Package | Versi | Fungsi |
 |---|---|---|
-| `codeigniter4/framework` | ^4.5 | Framework |
-| `ion-auth/ion-auth` | ^4.0 | Auth library |
-| `tecnickcom/tcpdf` | ^6.7 | PDF generation |
-| `phpoffice/phpspreadsheet` | ^2.0 | Excel import/export |
+| `codeigniter4/framework` | ^4.7 | Framework |
 
 ### 5.2 Composer (dev)
 
@@ -302,29 +299,29 @@ colors: {
 - [x] Buat `spark` root entrypoint (FCPATH benar)
 
 ### Phase 2: Core Migration
-- [x] Auth (Login/Logout + IonAuth)
+- [x] Auth (Login/Logout + Custom Auth Library)
 - [x] Dashboard
 - [x] Master: Jurusan, Matkul, Kelas, Dosen, Mahasiswa
 - [x] Relasi: JurusanMatkul, KelasDosen
-- [x] Bank Soal (CRUD + import/export Excel)
-- [ ] Ujian (jadwal, token, pelaksanaan)
-- [ ] Hasil Ujian (nilai, PDF)
+- [x] Bank Soal (CRUD)
+- [x] Ujian (jadwal, token, pelaksanaan)
+- [x] Hasil Ujian (nilai, cetak)
 - [x] Users Management
 - [x] Settings
 
 ### Phase 3: Library & Helper
-- [ ] Datatables library
-- [ ] PDF library
+- [x] Custom Auth library
+- [ ] PDF library (Current: browser print)
 - [ ] Helper functions
-- [ ] IonAuth config
+- [x] Datatables integration (Tailwind styled)
 
 ### Phase 4: Tailwind UI Implementation
 - [x] Layout template (sidebar, navbar, content)
 - [x] Auth pages (login)
 - [x] Dashboard page
-- [ ] Master pages (CRUD tables + forms)
-- [ ] Soal pages (editor)
-- [ ] Ujian pages (pelaksanaan)
+- [x] Master pages (CRUD tables + forms)
+- [x] Soal pages (index, form, import)
+- [x] Ujian pages (pelaksanaan, hasil, detail)
 - [x] Users pages
 - [x] Settings page
 - [ ] Responsive design
@@ -407,9 +404,9 @@ ujian-online-ci/
 |---|---|
 | Phase 0: Bootstrap | ✅ Selesai |
 | Phase 1: Database | ✅ Selesai |
-| Phase 2: Core Migration | 5-7 hari *(progress: Auth ✅, Dashboard ✅, Master ✅, Users ✅, Settings ✅)* |
-| Phase 3: Library & Helper | 1 hari |
-| Phase 4: Tailwind UI | 3-4 hari |
-| Phase 5: Testing | 2 hari |
+| Phase 2: Core Migration | ✅ Selesai |
+| Phase 3: Library & Helper | 70% |
+| Phase 4: Tailwind UI | ✅ Selesai |
+| Phase 5: Testing | 1-2 hari |
 | Phase 6: Final | 1 hari |
 | **Total** | **~13-16 hari** |
