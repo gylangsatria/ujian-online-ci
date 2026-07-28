@@ -81,7 +81,9 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
     $routes->post('tes/simpan_satu', 'Tes::simpan_satu');
     $routes->post('tes/selesai', 'Tes::selesai');
 
-    $routes->get('hasil-ujian', 'HasilUjian::index');
+    $routes->get('hasilujian', 'HasilUjian::index');
+    $routes->get('hasilujian/detail/(:num)', 'HasilUjian::detail/$1');
+    $routes->get('hasilujian/cetak/(:num)', 'HasilUjian::cetak/$1');
     $routes->get('users', 'Users::index');
     $routes->get('settings', 'Settings::index');
 });

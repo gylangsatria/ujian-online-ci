@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
     <style>
         .sidebar-link { display: flex; align-items: center; gap: 0.75rem; padding: 0.625rem 1rem; color: #d1d5db; border-radius: 0.5rem; transition: all 0.15s; }
         .sidebar-link:hover { background: #374151; color: #fff; }
@@ -42,7 +44,7 @@
             <div class="text-xs text-gray-500 uppercase tracking-wider px-4 pt-4 pb-1">Lainnya</div>
             <a href="<?= base_url('soal') ?>" class="sidebar-link"><i class="fas fa-question-circle w-5 text-center"></i> Bank Soal</a>
             <a href="<?= base_url('ujian') ?>" class="sidebar-link"><i class="fas fa-pencil-alt w-5 text-center"></i> Ujian</a>
-            <a href="<?= base_url('hasil-ujian') ?>" class="sidebar-link"><i class="fas fa-square-poll-vertical w-5 text-center"></i> Hasil Ujian</a>
+            <a href="<?= base_url('hasilujian') ?>" class="sidebar-link"><i class="fas fa-square-poll-vertical w-5 text-center"></i> Hasil Ujian</a>
             <a href="<?= base_url('users') ?>" class="sidebar-link"><i class="fas fa-user-shield w-5 text-center"></i> Users</a>
             <a href="<?= base_url('settings') ?>" class="sidebar-link"><i class="fas fa-cog w-5 text-center"></i> Settings</a>
 
@@ -55,7 +57,7 @@
             <?php elseif ($group_name === 'mahasiswa'): ?>
             <div class="text-xs text-gray-500 uppercase tracking-wider px-4 pt-4 pb-1">Menu</div>
             <a href="<?= base_url('tes') ?>" class="sidebar-link"><i class="fas fa-pencil-alt w-5 text-center"></i> Ujian</a>
-            <a href="<?= base_url('hasil-ujian') ?>" class="sidebar-link"><i class="fas fa-square-poll-vertical w-5 text-center"></i> Hasil Ujian</a>
+            <a href="<?= base_url('hasilujian') ?>" class="sidebar-link"><i class="fas fa-square-poll-vertical w-5 text-center"></i> Hasil Ujian</a>
             <?php endif; ?>
         </nav>
     </aside>
