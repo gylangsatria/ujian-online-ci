@@ -309,8 +309,8 @@ colors: {
 - [x] Bank Soal (CRUD + import/export Excel)
 - [ ] Ujian (jadwal, token, pelaksanaan)
 - [ ] Hasil Ujian (nilai, PDF)
-- [ ] Users Management
-- [ ] Settings
+- [x] Users Management
+- [x] Settings
 
 ### Phase 3: Library & Helper
 - [ ] Datatables library
@@ -325,8 +325,8 @@ colors: {
 - [ ] Master pages (CRUD tables + forms)
 - [ ] Soal pages (editor)
 - [ ] Ujian pages (pelaksanaan)
-- [ ] Users pages
-- [ ] Settings page
+- [x] Users pages
+- [x] Settings page
 - [ ] Responsive design
 
 ### Phase 5: Testing
@@ -407,7 +407,7 @@ ujian-online-ci/
 |---|---|
 | Phase 0: Bootstrap | ✅ Selesai |
 | Phase 1: Database | ✅ Selesai |
-| Phase 2: Core Migration | 5-7 hari *(progress: Auth ✅, Dashboard ✅, Master 🔲)* |
+| Phase 2: Core Migration | 5-7 hari *(progress: Auth ✅, Dashboard ✅, Master ✅, Users ✅, Settings ✅)* |
 | Phase 3: Library & Helper | 1 hari |
 | Phase 4: Tailwind UI | 3-4 hari |
 | Phase 5: Testing | 2 hari |

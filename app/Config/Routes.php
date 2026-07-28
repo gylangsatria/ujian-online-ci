@@ -85,5 +85,12 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
     $routes->get('hasilujian/detail/(:num)', 'HasilUjian::detail/$1');
     $routes->get('hasilujian/cetak/(:num)', 'HasilUjian::cetak/$1');
     $routes->get('users', 'Users::index');
+    $routes->get('users/edit/(:num)', 'Users::edit/$1');
+    $routes->post('users/update', 'Users::update');
+    $routes->get('users/delete/(:num)', 'Users::delete/$1');
+    $routes->get('users/activate/(:num)', 'Users::activate/$1');
+    $routes->get('users/deactivate/(:num)', 'Users::deactivate/$1');
+
     $routes->get('settings', 'Settings::index');
+    $routes->post('settings/update_password', 'Settings::update_password');
 });
