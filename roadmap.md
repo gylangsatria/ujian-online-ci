@@ -304,8 +304,8 @@ colors: {
 ### Phase 2: Core Migration
 - [x] Auth (Login/Logout + IonAuth)
 - [x] Dashboard
-- [ ] Master: Jurusan, Matkul, Kelas, Dosen, Mahasiswa
-- [ ] Relasi: JurusanMatkul, KelasDosen
+- [x] Master: Jurusan, Matkul, Kelas, Dosen, Mahasiswa
+- [x] Relasi: JurusanMatkul, KelasDosen
 - [ ] Bank Soal (CRUD + import/export Excel)
 - [ ] Ujian (jadwal, token, pelaksanaan)
 - [ ] Hasil Ujian (nilai, PDF)
