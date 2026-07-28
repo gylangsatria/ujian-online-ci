@@ -81,9 +81,9 @@ Login via **username** (NIP/NIM) — password ada di seed data.
 | Role | Username | Password |
 |---|---|---|
 | Admin | Administrator | admin |
-| Dosen | 12345678 | dosen123 |
-| Dosen | 01234567 | dosen123 |
-| Mahasiswa | 12183018 | mahasiswa123 |
+| Dosen | 12345678 | password |
+| Dosen | 01234567 | password |
+| Mahasiswa | 12183018 | password |
 
 ## License
 
