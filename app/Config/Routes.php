@@ -60,11 +60,27 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
     $routes->match(['get', 'post'], 'soal/create', 'Soal::create');
     $routes->match(['get', 'post'], 'soal/update/(:num)', 'Soal::update/$1');
     $routes->get('soal/delete/(:num)', 'Soal::delete/$1');
+
     $routes->match(['get', 'post'], 'soal/import', 'Soal::import');
     $routes->get('soal/export', 'Soal::export');
     $routes->get('soal/template', 'Soal::template');
 
+    // Ujian (Admin/Dosen)
     $routes->get('ujian', 'Ujian::index');
+    $routes->get('ujian/add', 'Ujian::add');
+    $routes->post('ujian/save', 'Ujian::save');
+    $routes->get('ujian/token/(:num)', 'Ujian::token/$1');
+    $routes->get('ujian/delete/(:num)', 'Ujian::delete/$1');
+
+    // Tes (Mahasiswa)
+    $routes->get('tes', 'Tes::index');
+    $routes->get('tes/token/(:num)', 'Tes::token/$1');
+    $routes->post('tes/cek_token', 'Tes::cek_token');
+    $routes->get('tes/mulai/(:num)', 'Tes::mulai/$1');
+    $routes->get('tes/kerjakan/(:num)', 'Tes::kerjakan/$1');
+    $routes->post('tes/simpan_satu', 'Tes::simpan_satu');
+    $routes->post('tes/selesai', 'Tes::selesai');
+
     $routes->get('hasil-ujian', 'HasilUjian::index');
     $routes->get('users', 'Users::index');
     $routes->get('settings', 'Settings::index');

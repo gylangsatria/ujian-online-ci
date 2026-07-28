@@ -54,7 +54,7 @@
 
             <?php elseif ($group_name === 'mahasiswa'): ?>
             <div class="text-xs text-gray-500 uppercase tracking-wider px-4 pt-4 pb-1">Menu</div>
-            <a href="<?= base_url('ujian') ?>" class="sidebar-link"><i class="fas fa-pencil-alt w-5 text-center"></i> Ujian</a>
+            <a href="<?= base_url('tes') ?>" class="sidebar-link"><i class="fas fa-pencil-alt w-5 text-center"></i> Ujian</a>
             <a href="<?= base_url('hasil-ujian') ?>" class="sidebar-link"><i class="fas fa-square-poll-vertical w-5 text-center"></i> Hasil Ujian</a>
             <?php endif; ?>
         </nav>
