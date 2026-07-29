@@ -13,8 +13,14 @@ $routes->get('/logout', 'Auth\Login::logout');
 // Dashboard
 $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'auth']);
 
-// Master
+// Routes for all logged-in users
 $routes->group('', ['filter' => 'auth'], static function ($routes) {
+    $routes->get('settings', 'Settings::index');
+    $routes->post('settings/update_password', 'Settings::update_password');
+});
+
+// Admin Only Routes
+$routes->group('', ['filter' => 'auth:admin'], static function ($routes) {
     // Jurusan
     $routes->get('jurusan', 'Jurusan::index');
     $routes->match(['get', 'post'], 'jurusan/create', 'Jurusan::create');
@@ -55,24 +61,42 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
     $routes->match(['get', 'post'], 'kelas-dosen/create', 'KelasDosen::create');
     $routes->get('kelas-dosen/delete/(:num)', 'KelasDosen::delete/$1');
 
+    // User management
+    $routes->get('users', 'Users::index');
+    $routes->get('users/edit/(:num)', 'Users::edit/$1');
+    $routes->post('users/update', 'Users::update');
+    $routes->get('users/delete/(:num)', 'Users::delete/$1');
+    $routes->get('users/activate/(:num)', 'Users::activate/$1');
+    $routes->get('users/deactivate/(:num)', 'Users::deactivate/$1');
+});
+
+// Admin & Dosen Routes
+$routes->group('', ['filter' => 'auth:admin,dosen'], static function ($routes) {
     // Bank Soal
     $routes->get('soal', 'Soal::index');
     $routes->match(['get', 'post'], 'soal/create', 'Soal::create');
     $routes->match(['get', 'post'], 'soal/update/(:num)', 'Soal::update/$1');
     $routes->get('soal/delete/(:num)', 'Soal::delete/$1');
-
     $routes->match(['get', 'post'], 'soal/import', 'Soal::import');
     $routes->get('soal/export', 'Soal::export');
     $routes->get('soal/template', 'Soal::template');
 
-    // Ujian (Admin/Dosen)
+    // Ujian
     $routes->get('ujian', 'Ujian::index');
     $routes->get('ujian/add', 'Ujian::add');
+    $routes->get('ujian/edit/(:num)', 'Ujian::edit/$1');
     $routes->post('ujian/save', 'Ujian::save');
     $routes->get('ujian/token/(:num)', 'Ujian::token/$1');
     $routes->get('ujian/delete/(:num)', 'Ujian::delete/$1');
 
-    // Tes (Mahasiswa)
+    // Hasil Ujian
+    $routes->get('hasilujian', 'HasilUjian::index');
+    $routes->get('hasilujian/detail/(:num)', 'HasilUjian::detail/$1');
+    $routes->get('hasilujian/cetak/(:num)', 'HasilUjian::cetak/$1');
+});
+
+// Mahasiswa Only Routes
+$routes->group('', ['filter' => 'auth:mahasiswa'], static function ($routes) {
     $routes->get('tes', 'Tes::index');
     $routes->get('tes/token/(:num)', 'Tes::token/$1');
     $routes->post('tes/cek_token', 'Tes::cek_token');
@@ -80,17 +104,4 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
     $routes->get('tes/kerjakan/(:num)', 'Tes::kerjakan/$1');
     $routes->post('tes/simpan_satu', 'Tes::simpan_satu');
     $routes->post('tes/selesai', 'Tes::selesai');
-
-    $routes->get('hasilujian', 'HasilUjian::index');
-    $routes->get('hasilujian/detail/(:num)', 'HasilUjian::detail/$1');
-    $routes->get('hasilujian/cetak/(:num)', 'HasilUjian::cetak/$1');
-    $routes->get('users', 'Users::index');
-    $routes->get('users/edit/(:num)', 'Users::edit/$1');
-    $routes->post('users/update', 'Users::update');
-    $routes->get('users/delete/(:num)', 'Users::delete/$1');
-    $routes->get('users/activate/(:num)', 'Users::activate/$1');
-    $routes->get('users/deactivate/(:num)', 'Users::deactivate/$1');
-
-    $routes->get('settings', 'Settings::index');
-    $routes->post('settings/update_password', 'Settings::update_password');
 });

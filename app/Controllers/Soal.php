@@ -276,15 +276,19 @@ class Soal extends BaseController
         $matkul_id = (int) $this->request->getGet('matkul_id');
 
         $model = model('App\Models\SoalModel');
-        if ($matkul_id > 0) {
-            $soal = $model->select('tb_soal.*, matkul.nama_matkul, dosen.nama_dosen')
-                ->join('matkul', 'tb_soal.matkul_id = matkul.id_matkul', 'left')
-                ->join('dosen', 'tb_soal.dosen_id = dosen.id_dosen', 'left')
-                ->where('tb_soal.matkul_id', $matkul_id)
-                ->findAll();
-        } else {
-            $soal = $model->getSoalWithRelasi();
+        $builder = $model->select('tb_soal.*, matkul.nama_matkul, dosen.nama_dosen')
+            ->join('matkul', 'tb_soal.matkul_id = matkul.id_matkul', 'left')
+            ->join('dosen', 'tb_soal.dosen_id = dosen.id_dosen', 'left');
+
+        if ($this->auth->isDosen()) {
+            $builder->where('tb_soal.dosen_id', session()->get('dosen_id'));
         }
+
+        if ($matkul_id > 0) {
+            $builder->where('tb_soal.matkul_id', $matkul_id);
+        }
+
+        $soal = $builder->findAll();
 
         $spreadsheet = new Spreadsheet();
         $sheet       = $spreadsheet->getActiveSheet();

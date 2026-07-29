@@ -46,6 +46,11 @@
                     </td>
                     <td class="px-6 py-4 text-sm text-center">
                         <div class="flex justify-center gap-2">
+                            <a href="<?= base_url('ujian/edit/' . $u->id_ujian) ?>" 
+                               class="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                               title="Edit Ujian">
+                                <i class="fas fa-edit"></i>
+                            </a>
                             <a href="<?= base_url('ujian/delete/' . $u->id_ujian) ?>" 
                                class="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
                                onclick="return confirm('Hapus ujian ini?')">

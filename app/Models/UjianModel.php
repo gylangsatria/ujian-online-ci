@@ -25,15 +25,14 @@ class UjianModel extends Model
 
     public function getUjian($id = null)
     {
-        $builder = $this->db->table($this->table . ' a');
-        $builder->select('a.*, b.nama_dosen, c.nama_matkul');
-        $builder->join('dosen b', 'a.dosen_id = b.id_dosen');
-        $builder->join('matkul c', 'a.matkul_id = c.id_matkul');
+        $this->select('m_ujian.*, dosen.nama_dosen, matkul.nama_matkul');
+        $this->join('dosen', 'm_ujian.dosen_id = dosen.id_dosen');
+        $this->join('matkul', 'm_ujian.matkul_id = matkul.id_matkul');
         
         if ($id !== null) {
-            return $builder->where('a.id_ujian', $id)->get()->getRow();
+            return $this->where('m_ujian.id_ujian', $id)->first();
         }
         
-        return $builder->get()->getResult();
+        return $this->findAll();
     }
 }

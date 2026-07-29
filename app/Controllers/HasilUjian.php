@@ -29,8 +29,13 @@ class HasilUjian extends BaseController
         if ($this->auth->isAdmin()) {
             $hasil = $this->hasilUjianModel->getHasilUjian();
         } elseif ($this->auth->isDosen()) {
-            // TODO: Filter by dosen matkul if needed
-            $hasil = $this->hasilUjianModel->getHasilUjian();
+            $dosen_id = session()->get('dosen_id');
+            $hasil = $this->hasilUjianModel
+                ->select('h_ujian.*, m_ujian.nama_ujian, m_ujian.jumlah_soal, mahasiswa.nama, mahasiswa.nim')
+                ->join('m_ujian', 'm_ujian.id_ujian = h_ujian.ujian_id')
+                ->join('mahasiswa', 'mahasiswa.id_mahasiswa = h_ujian.mahasiswa_id')
+                ->where('m_ujian.dosen_id', $dosen_id)
+                ->findAll();
         } else {
             $mhs = $this->mahasiswaModel->find(session()->get('mahasiswa_id'));
             $hasil = $this->hasilUjianModel->getHasilUjianByMahasiswa($mhs->id_mahasiswa);
@@ -51,6 +56,18 @@ class HasilUjian extends BaseController
             return redirect()->to('hasilujian');
         }
 
+        // Ownership check
+        if ($this->auth->isDosen()) {
+            $ujian = $this->ujianModel->find($hasil->ujian_id);
+            if ($ujian->dosen_id != session()->get('dosen_id')) {
+                return redirect()->to('hasilujian')->with('error', 'Forbidden');
+            }
+        } elseif ($this->auth->isMahasiswa()) {
+            if ($hasil->mahasiswa_id != session()->get('mahasiswa_id')) {
+                return redirect()->to('hasilujian')->with('error', 'Forbidden');
+            }
+        }
+
         $data = [
             'title' => 'Detail Hasil Ujian',
             'hasil' => $hasil
@@ -64,6 +81,18 @@ class HasilUjian extends BaseController
         $hasil = $this->hasilUjianModel->getHasilUjian($id);
         if (!$hasil) {
             return redirect()->to('hasilujian');
+        }
+
+        // Ownership check
+        if ($this->auth->isDosen()) {
+            $ujian = $this->ujianModel->find($hasil->ujian_id);
+            if ($ujian->dosen_id != session()->get('dosen_id')) {
+                return redirect()->to('hasilujian')->with('error', 'Forbidden');
+            }
+        } elseif ($this->auth->isMahasiswa()) {
+            if ($hasil->mahasiswa_id != session()->get('mahasiswa_id')) {
+                return redirect()->to('hasilujian')->with('error', 'Forbidden');
+            }
         }
 
         $data = [

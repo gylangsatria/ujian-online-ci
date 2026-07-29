@@ -104,6 +104,9 @@ class Tes extends BaseController
     public function kerjakan($id)
     {
         $hasil = $this->hasilUjianModel->find($id);
+        if (!$hasil || $hasil->mahasiswa_id != session()->get('mahasiswa_id')) {
+            return redirect()->to('tes')->with('error', 'Akses ditolak');
+        }
         $ujian = $this->ujianModel->getUjian($hasil->ujian_id);
         
         $list_soal = explode(',', $hasil->list_soal);
@@ -146,6 +149,9 @@ class Tes extends BaseController
         $jawaban = $this->request->getPost('jawaban');
 
         $hasil = $this->hasilUjianModel->find($id_hasil);
+        if (!$hasil || $hasil->mahasiswa_id != session()->get('mahasiswa_id')) {
+            return json_encode(['status' => false, 'message' => 'Forbidden']);
+        }
         $jawaban_raw = explode(',', $hasil->list_jawaban);
         
         $new_jawaban = "";
@@ -167,6 +173,9 @@ class Tes extends BaseController
     {
         $id_hasil = $this->request->getPost('id_hasil');
         $hasil = $this->hasilUjianModel->find($id_hasil);
+        if (!$hasil || $hasil->mahasiswa_id != session()->get('mahasiswa_id')) {
+            return redirect()->to('tes')->with('error', 'Forbidden');
+        }
         $ujian = $this->ujianModel->find($hasil->ujian_id);
         
         $jawaban_raw = explode(',', $hasil->list_jawaban);
