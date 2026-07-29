@@ -311,8 +311,8 @@ colors: {
 
 ### Phase 3: Library & Helper
 - [x] Custom Auth library
-- [ ] PDF library (Current: browser print)
-- [ ] Helper functions
+- [x] PDF library (Dompdf)
+- [x] Helper functions
 - [x] Datatables integration (Tailwind styled)
 
 ### Phase 4: Tailwind UI Implementation
@@ -405,7 +405,7 @@ ujian-online-ci/
 | Phase 0: Bootstrap | ✅ Selesai |
 | Phase 1: Database | ✅ Selesai |
 | Phase 2: Core Migration | ✅ Selesai |
-| Phase 3: Library & Helper | 70% |
+| Phase 3: Library & Helper | ✅ Selesai |
 | Phase 4: Tailwind UI | ✅ Selesai |
 | Phase 5: Testing | 1-2 hari |
 | Phase 6: Final | 1 hari |

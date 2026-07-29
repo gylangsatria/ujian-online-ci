@@ -11,7 +11,7 @@ Migrasi [Ujian Online CI](https://github.com/gylangsatria/ujian-online-ci) dari 
 | Web Server | Nginx 1.25 |
 | Frontend | Tailwind CSS (CDN) + Alpine.js |
 | Auth | Custom Auth Library (`App\Libraries\Auth`) |
-| PDF | Native Browser Print (Future: TBD) |
+| PDF | Dompdf |
 | Excel | Future: TBD |
 
 ## Quick Start
@@ -68,7 +68,7 @@ ujian-online-ci/
 | Phase 0: Bootstrap | ✅ |
 | Phase 1: Database | ✅ |
 | Phase 2: Core Migration | ✅ |
-| Phase 3: Library & Helper | 🚧 70% |
+| Phase 3: Library & Helper | ✅ |
 | Phase 4: Tailwind UI | ✅ |
 | Phase 5: Testing | 🚧 1-2 hari |
 | Phase 6: Final | 🔲 |

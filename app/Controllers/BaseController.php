@@ -30,5 +30,6 @@ abstract class BaseController extends Controller
         parent::initController($request, $response, $logger);
 
         $this->auth = service('auth');
+        helper(['my_helper', 'form', 'url']);
     }
 }
