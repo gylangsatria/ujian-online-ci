@@ -8,6 +8,7 @@ class SoalModel extends Model
 {
     protected $table         = 'tb_soal';
     protected $primaryKey    = 'id_soal';
+    protected $returnType    = 'object';
     protected $allowedFields = [
         'dosen_id', 'matkul_id', 'bobot', 'file', 'tipe_file',
         'soal', 'opsi_a', 'opsi_b', 'opsi_c', 'opsi_d', 'opsi_e',
