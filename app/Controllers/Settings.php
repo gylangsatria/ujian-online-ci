@@ -6,7 +6,7 @@ class Settings extends BaseController
 {
     public function index()
     {
-        if (!$this->auth->is_admin()) {
+        if (!$this->auth->isAdmin()) {
             return redirect()->to('dashboard');
         }
 

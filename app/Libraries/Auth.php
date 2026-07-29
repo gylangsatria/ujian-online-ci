@@ -83,6 +83,15 @@ class Auth
         $this->session->destroy();
     }
 
+    public function user(): ?object
+    {
+        $userId = $this->getUserId();
+        if (!$userId) {
+            return null;
+        }
+        return $this->usersModel->find($userId);
+    }
+
     public function isLoggedIn(): bool
     {
         return $this->session->get('is_logged_in') === true;

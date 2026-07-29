@@ -24,14 +24,14 @@
     <aside id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-gray-900 text-white z-40 transition-transform -translate-x-full lg:translate-x-0">
         <div class="p-4 border-b border-gray-700">
             <h1 class="font-bold text-lg">Ujian Online</h1>
-            <p class="text-xs text-gray-400 mt-1"><?= esc($group_name ?? '') ?></p>
+            <p class="text-xs text-gray-400 mt-1"><?= esc($group_name ?? session()->get('group_name') ?? '') ?></p>
         </div>
         <nav class="p-3 space-y-1 overflow-y-auto h-[calc(100%-64px)]">
             <a href="<?= base_url('dashboard') ?>" class="sidebar-link <?= ($active_menu ?? 'dashboard') === 'dashboard' ? 'active' : '' ?>">
                 <i class="fas fa-tachometer-alt w-5 text-center"></i> Dashboard
             </a>
 
-            <?php if ($group_name === 'admin'): ?>
+            <?php if (($group_name ?? session()->get('group_name')) === 'admin'): ?>
             <div class="text-xs text-gray-500 uppercase tracking-wider px-4 pt-4 pb-1">Master</div>
             <a href="<?= base_url('jurusan') ?>" class="sidebar-link"><i class="fas fa-building w-5 text-center"></i> Jurusan</a>
             <a href="<?= base_url('matkul') ?>" class="sidebar-link"><i class="fas fa-book w-5 text-center"></i> Matkul</a>
@@ -48,13 +48,13 @@
             <a href="<?= base_url('users') ?>" class="sidebar-link"><i class="fas fa-user-shield w-5 text-center"></i> Users</a>
             <a href="<?= base_url('settings') ?>" class="sidebar-link"><i class="fas fa-cog w-5 text-center"></i> Settings</a>
 
-            <?php elseif ($group_name === 'dosen'): ?>
+            <?php elseif (($group_name ?? session()->get('group_name')) === 'dosen'): ?>
             <div class="text-xs text-gray-500 uppercase tracking-wider px-4 pt-4 pb-1">Menu</div>
             <a href="<?= base_url('soal') ?>" class="sidebar-link"><i class="fas fa-question-circle w-5 text-center"></i> Bank Soal</a>
             <a href="<?= base_url('ujian') ?>" class="sidebar-link"><i class="fas fa-pencil-alt w-5 text-center"></i> Ujian</a>
             <a href="<?= base_url('kelas-dosen') ?>" class="sidebar-link"><i class="fas fa-chalkboard w-5 text-center"></i> Kelas Saya</a>
 
-            <?php elseif ($group_name === 'mahasiswa'): ?>
+            <?php elseif (($group_name ?? session()->get('group_name')) === 'mahasiswa'): ?>
             <div class="text-xs text-gray-500 uppercase tracking-wider px-4 pt-4 pb-1">Menu</div>
             <a href="<?= base_url('tes') ?>" class="sidebar-link"><i class="fas fa-pencil-alt w-5 text-center"></i> Ujian</a>
             <a href="<?= base_url('hasilujian') ?>" class="sidebar-link"><i class="fas fa-square-poll-vertical w-5 text-center"></i> Hasil Ujian</a>

@@ -28,7 +28,7 @@ class HasilUjian extends BaseController
     {
         $user_id = session()->get('user_id');
         
-        if ($this->auth->is_admin()) {
+        if ($this->auth->isAdmin()) {
             $hasil = $this->hasilUjianModel->getHasilUjian();
         } elseif ($this->auth->in_group('dosen')) {
             // TODO: Filter by dosen matkul if needed

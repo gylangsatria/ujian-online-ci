@@ -15,7 +15,7 @@ class Users extends BaseController
 
     public function index()
     {
-        if (!$this->auth->is_admin()) {
+        if (!$this->auth->isAdmin()) {
             return redirect()->to('dashboard');
         }
 
@@ -33,7 +33,7 @@ class Users extends BaseController
 
     public function edit($id)
     {
-        if (!$this->auth->is_admin()) {
+        if (!$this->auth->isAdmin()) {
             return redirect()->to('dashboard');
         }
 
@@ -54,7 +54,7 @@ class Users extends BaseController
 
     public function update()
     {
-        if (!$this->auth->is_admin()) {
+        if (!$this->auth->isAdmin()) {
             return redirect()->to('dashboard');
         }
 
@@ -91,7 +91,7 @@ class Users extends BaseController
 
     public function delete($id)
     {
-        if (!$this->auth->is_admin()) {
+        if (!$this->auth->isAdmin()) {
             return redirect()->to('dashboard');
         }
 
@@ -105,7 +105,7 @@ class Users extends BaseController
 
     public function activate($id)
     {
-        if (!$this->auth->is_admin()) {
+        if (!$this->auth->isAdmin()) {
             return redirect()->to('dashboard');
         }
 
@@ -115,7 +115,7 @@ class Users extends BaseController
 
     public function deactivate($id)
     {
-        if (!$this->auth->is_admin()) {
+        if (!$this->auth->isAdmin()) {
             return redirect()->to('dashboard');
         }
 
