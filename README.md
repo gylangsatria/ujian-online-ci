@@ -22,12 +22,12 @@ git clone git@github.com:gylangsatria/ujian-online-ci.git
 cd ujian-online-ci
 git checkout migrate/codeigniter-4
 
-# jalankan container
-docker compose up -d
+# setup env
+cp .env.example .env
+# edit .env — isi MYSQL_DATABASE, user, password sesuai keinginan
 
-# migrasi & seed database (pertama kali)
-docker compose exec app php spark migrate
-docker compose exec app php spark db:seed DatabaseSeeder
+# jalankan container (otomatis bikin DB + seed data dari sql/init.sql)
+docker compose up -d
 
 # akses
 # App:       http://localhost:8080
@@ -36,16 +36,18 @@ docker compose exec app php spark db:seed DatabaseSeeder
 
 ## Environment
 
-Copy `.env.example` ke `.env` (sudah tersedia dengan default development):
+Copy `.env.example` ke `.env` lalu isi nilai sesuai lingkungan:
 
-```
-CI_ENVIRONMENT = development
-database.default.hostname = db
-database.default.database = ci_online_test
-database.default.username = ci4user
-database.default.password = ci4pass
-database.default.DBDriver = MySQLi
-```
+| Variabel | Contoh | Keterangan |
+|---|---|---|
+| `MYSQL_DATABASE` / `database.default.database` | `ujian_online` | Nama database |
+| `MYSQL_USER` / `database.default.username` | `ci4user` | User MySQL |
+| `MYSQL_PASSWORD` / `database.default.password` | `ci4pass` | Password MySQL |
+| `MYSQL_ROOT_PASSWORD` | `rootpass` | Root password MySQL |
+
+Variabel `MYSQL_*` dipakai oleh container MySQL.  
+`database.default.*` dipakai oleh aplikasi.  
+Keduanya harus **sama** nilainya.
 
 ## Struktur
 

@@ -1,7 +1,7 @@
 # CodeIgniter 4
 app/Config/ENVIRONMENT
 .env
-.env.example
+# .env.example (tracked - template without secrets)
 
 # writable directory
 writable/cache/*
