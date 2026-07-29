@@ -26,7 +26,7 @@
 <div class="mb-4 p-3 bg-red-100 border border-red-300 text-red-800 rounded-lg text-sm"><?= esc(session()->getFlashdata('error')) ?></div>
 <?php endif; ?>
 
-<div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+<div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-x-auto">
     <table class="w-full text-sm">
         <thead class="bg-gray-50 border-b">
             <tr>

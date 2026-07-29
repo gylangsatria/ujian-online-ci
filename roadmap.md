@@ -298,7 +298,7 @@ colors: {
 - [x] Fix `app/Config/Database.php` — env() agar terbaca dari .env
 - [x] Buat `spark` root entrypoint (FCPATH benar)
 
-### Phase 2: Core Migration
+### Phase 2: Core Migration ✅
 - [x] Auth (Login/Logout + Custom Auth Library)
 - [x] Dashboard
 - [x] Master: Jurusan, Matkul, Kelas, Dosen, Mahasiswa
@@ -309,7 +309,7 @@ colors: {
 - [x] Users Management
 - [x] Settings
 
-### Phase 3: Library & Helper
+### Phase 3: Library & Helper ✅
 - [x] Custom Auth library
 - [x] PDF library (Dompdf)
 - [x] Helper functions
@@ -324,7 +324,7 @@ colors: {
 - [x] Ujian pages (pelaksanaan, hasil, detail)
 - [x] Users pages
 - [x] Settings page
-- [ ] Responsive design
+- [x] Responsive design
 
 ### Phase 5: Testing
 - [ ] Login all roles

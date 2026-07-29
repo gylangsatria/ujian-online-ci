@@ -66,7 +66,7 @@
             </div>
         </div>
         <div class="mt-8">
-            <a href="<?= base_url('hasilujian/cetak/' . $row->id) ?>" target="_blank" class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg font-semibold inline-flex items-center gap-2 transition-all">
+            <a href="<?= base_url('hasilujian/cetak/' . $hasil->id) ?>" target="_blank" class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg font-semibold inline-flex items-center gap-2 transition-all">
                 <i class="fa-solid fa-file-pdf"></i> Cetak Hasil (PDF)
             </a>
         </div>
