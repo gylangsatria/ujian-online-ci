@@ -10,4 +10,5 @@ class MahasiswaModel extends Model
     protected $primaryKey    = 'id_mahasiswa';
     protected $allowedFields = ['nama', 'nim', 'email', 'jenis_kelamin', 'kelas_id'];
     protected $useTimestamps = false;
+    protected $returnType    = 'object';
 }

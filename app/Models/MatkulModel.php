@@ -10,4 +10,5 @@ class MatkulModel extends Model
     protected $primaryKey    = 'id_matkul';
     protected $allowedFields = ['nama_matkul'];
     protected $useTimestamps = false;
+    protected $returnType    = 'object';
 }

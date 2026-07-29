@@ -8,6 +8,7 @@ class JurusanMatkulModel extends Model
 {
     protected $table         = 'jurusan_matkul';
     protected $primaryKey    = 'id';
-    protected $allowedFields = ['matkul_id', 'jurusan_id'];
+    protected $allowedFields = ['jurusan_id', 'matkul_id'];
     protected $useTimestamps = false;
+    protected $returnType    = 'object';
 }

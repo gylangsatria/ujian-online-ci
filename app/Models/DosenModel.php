@@ -10,4 +10,5 @@ class DosenModel extends Model
     protected $primaryKey    = 'id_dosen';
     protected $allowedFields = ['nip', 'nama_dosen', 'email', 'matkul_id'];
     protected $useTimestamps = false;
+    protected $returnType    = 'object';
 }

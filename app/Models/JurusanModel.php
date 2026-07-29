@@ -10,4 +10,5 @@ class JurusanModel extends Model
     protected $primaryKey    = 'id_jurusan';
     protected $allowedFields = ['nama_jurusan'];
     protected $useTimestamps = false;
+    protected $returnType    = 'object';
 }

@@ -10,4 +10,5 @@ class KelasModel extends Model
     protected $primaryKey    = 'id_kelas';
     protected $allowedFields = ['nama_kelas', 'jurusan_id'];
     protected $useTimestamps = false;
+    protected $returnType    = 'object';
 }
