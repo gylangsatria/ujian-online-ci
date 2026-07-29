@@ -24,8 +24,7 @@ class Tes extends BaseController
 
     public function index()
     {
-        $user_id = session()->get('user_id');
-        $mhs = $this->mahasiswaModel->where('user_id', $user_id)->first();
+        $mhs = $this->mahasiswaModel->find(session()->get('mahasiswa_id'));
         
         if (!$mhs) {
             return "User bukan mahasiswa";
@@ -64,14 +63,13 @@ class Tes extends BaseController
 
     public function mulai($id)
     {
-        $user_id = session()->get('user_id');
-        $mhs = $this->mahasiswaModel->where('user_id', $user_id)->first();
+        $mhs = $this->mahasiswaModel->find(session()->get('mahasiswa_id'));
         
         $exists = $this->hasilUjianModel->where(['ujian_id' => $id, 'mahasiswa_id' => $mhs->id_mahasiswa])->first();
         
         if (!$exists) {
             $ujian = $this->ujianModel->find($id);
-            $soal = $this->soalModel->where('matkul_id', $ujian->matkul_id)->orderBy('id_soal', $ujian->jenis == 'acak' ? 'RANDOM' : 'ASC')->limit($ujian->jumlah_soal)->findAll();
+            $soal = $this->soalModel->where('matkul_id', $ujian->matkul_id)->orderBy('id_soal', $ujian->jenis == 'acak' ? 'RANDOM' : 'ASC')->limit((int) $ujian->jumlah_soal)->findAll();
             
             $list_soal = "";
             $list_jawaban = "";

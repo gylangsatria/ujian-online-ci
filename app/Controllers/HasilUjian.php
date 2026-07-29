@@ -26,15 +26,13 @@ class HasilUjian extends BaseController
 
     public function index()
     {
-        $user_id = session()->get('user_id');
-        
         if ($this->auth->isAdmin()) {
             $hasil = $this->hasilUjianModel->getHasilUjian();
-        } elseif ($this->auth->in_group('dosen')) {
+        } elseif ($this->auth->isDosen()) {
             // TODO: Filter by dosen matkul if needed
             $hasil = $this->hasilUjianModel->getHasilUjian();
         } else {
-            $mhs = $this->mahasiswaModel->where('user_id', $user_id)->first();
+            $mhs = $this->mahasiswaModel->find(session()->get('mahasiswa_id'));
             $hasil = $this->hasilUjianModel->getHasilUjianByMahasiswa($mhs->id_mahasiswa);
         }
 

@@ -31,7 +31,7 @@ class UjianModel extends Model
         $builder->join('matkul c', 'a.matkul_id = c.id_matkul');
         
         if ($id !== null) {
-            return $builder->where('a.id_ujian', id)->get()->getRow();
+            return $builder->where('a.id_ujian', $id)->get()->getRow();
         }
         
         return $builder->get()->getResult();
